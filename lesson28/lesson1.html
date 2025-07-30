@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Array in HTML</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        // Sample array of objects
+        const users = [
+            { name: "Alice", age: 25 },
+            { name: "Bob", age: 30 },
+            { name: "Charlie", age: 35 }
+        ];
+
+        // Get the container element
+        const container = document.getElementById('container');
+
+        // Map the array to create HTML content
+        const userCards = users.map(user => `
+      <div class="card">
+        <h3>${user.name}</h3>
+        <p>Age: ${user.age}</p>
+      </div>
+    `);
+
+        // Insert the generated HTML into the container
+        container.innerHTML = userCards.join('');
+    </script>
+</body>
+
+</html>
