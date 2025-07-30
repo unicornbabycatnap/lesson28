@@ -1,0 +1,59 @@
+<!DOCTYPE html<br /><br />
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sort and Reverse Numbers</title>
+</head>
+
+<body>
+
+    <h2>Numbers:</h2>
+    <ul id="number-list">
+        <li>5</li>
+        <li>1</li>
+        <li>9</li>
+        <li>2</li>
+        <li>7</li>
+    </ul>
+
+    <button onclick="sortNumbers()">Sort Numbers</button>
+    <button onclick="reverseNumbers()">Reverse Numbers</button>
+
+    <script>
+        // Function to get numbers from the list as an array of numbers
+        function getNumbers() {
+            const listItems = document.querySelectorAll('#number-list li');
+            return Array.from(listItems).map(li => Number(li.textContent));
+        }
+
+        // Function to update the list elements based on the passed array
+        function updateList(numbers) {
+            const ul = document.getElementById('number-list');
+            ul.innerHTML = ''; // Clear existing list
+            numbers.forEach(num => {
+                const li = document.createElement('li');
+                li.textContent = num;
+                ul.appendChild(li);
+            });
+        }
+
+        // Sort numbers in ascending order
+        function sortNumbers() {
+            const numbers = getNumbers();
+            numbers.sort((a, b) => a - b); // numeric sort
+            updateList(numbers);
+        }
+
+        // Reverse the order of numbers
+        function reverseNumbers() {
+            const numbers = getNumbers();
+            numbers.reverse();
+            updateList(numbers);
+        }
+    </script>
+
+</body>
+
+</html>
